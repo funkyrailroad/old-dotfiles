@@ -1,0 +1,22 @@
+[core]
+	editor = vim
+[user]
+	email = jatwell@physik.fu-berlin.de
+	name = Jake Atwell
+[alias]
+    a   = add
+    aa  = add .
+    ap  = add --patch
+    b   = branch
+    cm  = commit
+    cma = commit --amend
+	co  = checkout
+    ev  = !vim ~/.gitconfig
+    ek  = !vim ~/.vim/keepers/git.rst
+    d   = diff
+    l   = log --stat
+    m   = merge 
+    s   = status
+    sh  = show
+[push]
+	default = simple

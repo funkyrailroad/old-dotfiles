@@ -1,0 +1,90 @@
+make a boolean array of same shape as F_magnitude that returns true if the value is in the 98th percentile of the array.
+peaks = F_magnitude < np.percentile(F_magnitude, 98)
+
+see if variables x and y reference the same object
+x is y # true if they are, false otherwise
+
+cast an ndarray X of data type bool to integers
+X.astype(int)
+
+matplotlib: how to plot vector fields 
+quiver
+
+matplotlib: how to add text to a plot?
+plt.annotate(title, xy, xycoords, xytext, textcoords)
+xy is where the arrow points to, xytext is where the text is positioned, {xy,text}coords is what type of coordinates are used (fraction of the axis, data, pixes...)
+
+
+If x and y are both multi dimensional, it is possible to set the legend for
+all lines plotted at once like this::
+
+    lineObjects = plt.plot(x, y)
+    plt.legend(lineObjects, [1, 2, 3])
+
+
+Can carefully place graphs inside of or on top of other `graphs <http://matplotlib.org/examples/pylab_examples/axes_demo.html#pylab-examples-axes-demo>`_
+
+plt.text(x, y, r'some text'): can add text to a graph (don't need to use annotate)
+
+`zoom in on axes <http://matplotlib.org/users/annotations.html#zoom-effect-between-axes>`_
+
+numpy: select elements in an array that are less than 0 and greater than 1
+y = np.random.normal(loc=0.5, scale=0.4, size=1000)
+y = y[(y > 0) & (y < 1)]
+
+
+`image tutorial <http://matplotlib.org/users/image_tutorial.html>`_
+
+matplotlib: set y axis limits in a plot
+plt.ylim((ymin, ymax))
+
+python: get the index of the maximum of a multidemensional array
+maxind = np.unravel_index(np.argmax(ft_modes) , ft_modes.shape)
+
+matplotlib: where on the screen does contourf Z "height" argument Z[0,0] start?
+on the bottom left corner of the screen
+
+NumPy
+~~~~~
+
+numpy: sort an array along the first axis (columns in 2d arrays) by the column with
+index n
+together = together[np.argsort(together[:,n])]
+
+numpy: sort an array along with a prioritization of colums to be sorted. The final
+argument takes priority and it works backwards from there. In the example
+below, column "a" will be sorted first and if elements are the same, they will
+be sorted according to column "b"::
+
+    ind = np.lexsort((b, a))
+    array_sorted = array[ind]
+
+
+
+Jedi
+~~~~~
+jedi: Ctrl+Space
+autocomplete menu
+
+jedi: Shift+K    
+display of function/class bodies
+
+`jedi github page <https://github.com/davidhalter/jedi>`_
+
+
+how to install libraries locally
+pip install --user package_name
+
+
+Suggestions
+============
+
+getting familiar with manipulating numpy arrays would be helpful. 
+    - defaults of element wise or matrix operations
+    - adding along different axes
+
+
+
+
+Sources
+=========

@@ -1,0 +1,13 @@
+"3.12.0 (created: 2016/02/28 22:07:56)
+
+nnoremap j 5j
+nnoremap k 5k
+nnoremap <C-h> gT
+nnoremap <C-l> gt
+nnoremap J 100j
+nnoremap K 100k
+set defsearch=duckduckgo
+set hintchars=abcdefghijklmnopqrstuvwxyz
+source! /home/jatwell/.vimperatorrc.local
+
+" vim: set ft=vimperator:
