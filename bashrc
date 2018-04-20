@@ -56,9 +56,8 @@ fi
 
 # load packages
 module load cmake/2.8.12.2-cuda ninja lua git 2>/dev/null # ignore missing modules
-export PATH=/srv/public/jatwell/build/halmd:$PATH
-export PATH=/srv/data/jatwell/srv_public/jatwell/build/5th_halmd/halmd:$PATH
 export PATH=/srv/public/jatwell/build/5th_halmd/halmd:$PATH
+#export PATH=~/data/:$PATH
 export PATH=~/master_thesis/tools:$PATH
 export PATH="~/.bin-local/:$PATH"
 
@@ -139,7 +138,7 @@ alias sheldonssh='ssh -X jakeatwell@sheldon-ng.physik.fu-berlin.de'
 alias homessh='/usr/bin/ssh -D 1080 -p 8712 RakishLitterPanelStager@goneaway.chickenkiller.com'
 alias ev='vim ~/.bashrc'
 alias sv='source ~/.bashrc'
-alias ek='vim ~/.keepers'
+alias ek='vim ~/.vim/keepers/keepers'
 
 alias ls="ls --color=always --group-directories-first"
 alias la="ls -a"

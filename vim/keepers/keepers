@@ -1,0 +1,122 @@
+lpr -P a9-k008-col -o Duplex=DuplexNoTumble -o saturation=0 -o page-ranges=1-2  out.pdf 
+lpr -P a9-k008-col -o sides=two-side-long-edge -o saturation=0 -o page-ranges=1-2  out.pdf 
+# print to print a9-k008-col
+# double side printed along long side
+# saturation 0 is black and white (apparently not)
+# a good explanation of duplexing, also how to make booklets (use pdftops)
+# http://www.enet.umn.edu/docs/unix/printing/duplex_cups.html
+# Duplex=DuplexNoTumble is long side binding
+# Duplex=DuplexTumble is short side binding
+
+##################
+# PDFJAM
+##################
+
+pdfjam --outfile out.pdf --paper a4paper --scale 1.5 --offset '-3cm 0cm' file.pdf 
+# convert file.pdf to a4 and the output file is out.pdf
+# a whole lot of things, see http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/firth/software/pdfjam
+# printing a booklet
+# print to a .ps file in adobe reader
+# print it with document viewer double sided and flip over short edge
+
+# merging
+pdfjam file1.pdf '-' file2.pdf '1,2' file3.pdf '2-' --outfile output.pdf
+# http://0x2a.at/blog/2011/02/pdf_manipulation_on_the_cli/
+
+# splitting
+pdfjam file1.pdf '1,2' --outfile first.pdf
+pdfjam file1.pdf '3-' --outfile second.pdf
+# http://0x2a.at/blog/2011/02/pdf_manipulation_on_the_cli/
+
+# trimming
+pdfjam --trim '1cm 2cm 1cm 2cm' --clip true file1.pdf --outfile output.pdf
+# http://0x2a.at/blog/2011/02/pdf_manipulation_on_the_cli/
+
+# upping
+pdfjam --nup 2x2 file1.pdf --outfile output.pdf
+# http://0x2a.at/blog/2011/02/pdf_manipulation_on_the_cli/
+
+#####################################
+
+scp -r jatwell@login.physik.fu-berlin.de:~/.vim .
+
+scp jatwell@login.physik.fu-berlin.de:~/.bashrc .
+
+h5dump  lennard_jones_20170427_155401.h5/h5md/author
+
+h5ls lennard_jones_20170427_155401.h5/h5md
+
+setxkbmap us
+# change keyboardlayout to us
+
+wget -p -k i3wm.org/docs/userguide.html
+# The -p will get you all the required elements to view the site correctly (css, images, etc). The -k will change all links (to include those for CSS & images) to allow you to view the page offline as it appeared online.
+
+
+gqip
+# in vim, format in the current paragraph
+# automatic word wrapping http://vim.wikia.com/wiki/Automatic_word_wrapping
+
+scrot -s file.png
+# take a screen shot with a selection tool and save as file.png
+
+TexLet g:Tex_MultipleCompileFormats = 'dvi, pdf, bib'
+# add this into the vim-latex tex.vim file to ensure latex recompiles and
+# bibliogoraphy entries work
+
+chmod 0444 filename
+# I used this to make a file read only, don't understand it though
+
+redshift
+# config file in ~/.config/redshift.conf
+
+unzip -d folder/ zip.zip
+# extract the files contained in zip.zip into folder/
+
+grep -iIrn phrase *
+# a case-insensitive search for "phrase" in all files recursively that ignores
+matches in binary files and prints the line number in the file of the matches
+
+crontab -e
+# edit cron jobs
+
+ls -t | head -n 2 | xargs rm --
+# delete newest two entries in a directory
+
+git push mpg antialignment-gpu-2d:sandbox/jake.atwell/antialignment-gpu-2d
+#push local branch to remote location, add -f to force push
+
+
+#BACKUPS
+#backup to storage
+rsync -av --exclude .cache --exclude .mozilla ~/ /storage/mi/jatwell/backup
+#backup to physics server
+rsync -av --exclude .cache --exclude .mozilla ~/ login.physik.fu-berlin.de:/net/storage/jatwell/backup
+
+
+# recompile, run generate_configuration, run 2d-python script for plotting
+# positions and orientations, make gif from png files, open gif with eog
+./full-antialignment && ~/master_thesis/analysis/2d-simulation-animation/2d-simulation.py antialignment/configuration.h5 && convert movie-test/*.png movie-test/animation.gif && eog movie-test/animation.gif
+
+# generally building and installing locally from source
+# download the source code
+# ./configure --prefix=/path/to/installation/dir
+# make
+# make install
+
+
+# manually configure libraries that are needed by an executable
+# https://nixos.org/patchelf.html
+patchelf --set-rpath /opt/my-libs/lib:/foo/lib program
+
+ctags -R -f ./.git/tags .
+#ctags initialize and hide file in .git folder
+# https://andrew.stwrt.ca/posts/vim-ctags/
+
+
+
+
+sed -i 's/max_steps = 5/max_steps = nsteps/' current_modes.py density_modes.py velocity-field.py vorticity_fields.py 
+#using sed to change a line in multiple files
+
+
