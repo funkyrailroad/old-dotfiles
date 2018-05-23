@@ -56,8 +56,7 @@ fi
 
 # load packages
 module load cmake/2.8.12.2-cuda ninja lua git 2>/dev/null # ignore missing modules
-export PATH=/srv/public/jatwell/build/5th_halmd/halmd:$PATH
-#export PATH=~/data/:$PATH
+#export PATH=/srv/public/jatwell/build/5th_halmd/halmd:$PATH
 export PATH=~/master_thesis/tools:$PATH
 export PATH="~/.bin-local/:$PATH"
 
@@ -140,9 +139,9 @@ alias ev='vim ~/.bashrc'
 alias sv='source ~/.bashrc'
 alias ek='vim ~/.vim/keepers/keepers'
 
-alias ls="ls --color=always --group-directories-first"
-alias la="ls -a"
-alias ll="ls -lh"
+alias la="\ls --color=always --group-directories-first -La"
+alias ll="\ls --color=always --group-directories-first -lh"
+alias ls="ls -L --color=always --group-directories-first"
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export LC_MESSAGES=POSIX #makes messages/man pages be in english
 
