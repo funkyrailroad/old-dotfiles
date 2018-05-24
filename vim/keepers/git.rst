@@ -13,11 +13,12 @@ https://help.github.com/enterprise/2.13/user/articles/generating-a-new-ssh-key-a
 
 # adding an ssh key to git
 https://help.github.com/enterprise/2.13/user/articles/adding-a-new-ssh-key-to-your-github-account/
-then from the repository run
+# then from the repository run
 ssh -T git@github.com
-and verify fingerprint
-RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-if push doesn't work, you might have to redefine the ssh url for remote origin
-git config --get remote.origin.url
+# and verify fingerprint
+# RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+# if push doesn't work, you might have to redefine the ssh url for remote origin
 git remote set-url origin git@github.com:path/to/repository
+# check current remot with: (notice beginning is different!)
+git config --get remote.origin.url
 git push
