@@ -1,11 +1,9 @@
 anki cards for spanish
 use html scraper mentioned in anki article to scrape python documentation
 organize .keepers files, then write script to make anki lists out of them
-call american embassy in south sudan
-knee project with switches
+south sudan project
 vim: effectively use ctags 
 breeze through a section of some documentation, have a list of the structure to check off completed sections and interesting features
-get a copy of all of my preference files, make a git repo for them so they're never lost
 selfauthoring
 root phone, see if it'll work on usa network
 make a list of problems that come to mind

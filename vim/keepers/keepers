@@ -119,4 +119,18 @@ ctags -R -f ./.git/tags .
 sed -i 's/max_steps = 5/max_steps = nsteps/' current_modes.py density_modes.py velocity-field.py vorticity_fields.py 
 #using sed to change a line in multiple files
 
+ssh bountiful 'cd ~/opt/halmd/halmd/ && bash ./test_run.sh'
+# running a remote script on a remote machine via ssh, can't be run in
 
+jobs/fg/bg
+# see the list of background jobs and bring/send specific ones to fore-/back-ground
+
+${string/substring/replacement}
+#bash string replacement, replace first match of $substring with $replacement.
+
+${string//substring/replacement}
+#bash string replacement, replace all matches of $substring with $replacement.
+
+parallel -j200% energy_spectrum.py ::: *.h5
+#running this program in parallel for all the files that end in .h5, with
+#2 jobs per core
