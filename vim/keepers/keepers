@@ -134,3 +134,11 @@ ${string//substring/replacement}
 parallel -j200% energy_spectrum.py ::: *.h5
 #running this program in parallel for all the files that end in .h5, with
 #2 jobs per core
+
+# GENERATE NEW SSH KEY AND ADD TO SSH-AGENT
+# Paste the text below, substituting in your GitHub Enterprise email address.
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+# When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
+# add ssh key to the ssh-agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
