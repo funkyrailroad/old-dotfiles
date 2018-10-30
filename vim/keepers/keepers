@@ -36,6 +36,10 @@ pdfjam --trim '1cm 2cm 1cm 2cm' --clip true file1.pdf --outfile output.pdf
 pdfjam --nup 2x2 file1.pdf --outfile output.pdf
 # http://0x2a.at/blog/2011/02/pdf_manipulation_on_the_cli/
 
+
+# making a booklet, have to print double-sided and flip along short edge
+pdfbook --short-edge file.pdf
+
 #####################################
 
 scp -r jatwell@login.physik.fu-berlin.de:~/.vim .
@@ -86,6 +90,11 @@ ls -t | head -n 2 | xargs rm --
 git push mpg antialignment-gpu-2d:sandbox/jake.atwell/antialignment-gpu-2d
 #push local branch to remote location, add -f to force push
 
+git push mpg :sandbox/jake.atwell/antialignment-gpu-2d
+# delete remote branch, add -f to force push, -n to try
+
+currentBranch=`git rev-parse --abbrev-ref HEAD`; git push mpg ${currentBranch}:sandbox/jake.atwell/$currentBranch
+#push current branch to sandbox repo
 
 #BACKUPS
 #backup to storage
@@ -142,3 +151,21 @@ ssh-keygen -t rsa -b 4096 -C "jake.atwell@gmail.com"
 # add ssh key to the ssh-agent
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
+
+# running ocf while grepping relevant  files
+ls *.h5 | grep density_150 | xargs ocf.py
+
+# figure out the names of the keys you press, useful for assigning keyboard
+# shorcuts in i3
+xev
+
+
+# split file into multiple other files with 10 lines each (names begin with
+# prefix)
+split -l 10 file prefix
+
+#convert pdf to grayscale
+convert -colorspace GRAY color.pdf gray.pdf
+
+# vim cheatsheet
+https://michaelgoerz.net/refcards/vimqrc.pdf

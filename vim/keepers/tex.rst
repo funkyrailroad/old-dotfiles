@@ -26,6 +26,12 @@ how to deactivate portions of the latex code to speed up compile time::
 ...
 \fi
 
+# bold greek letters
+\pmb{\omega}
+
+~
+non-breaking space
+
 Bibtex
 ~~~~~~~~
 how to compile bibtex 
@@ -37,6 +43,34 @@ how to include bibliography in the main tex file
 \bibliography{mybib}
 \bibliographystyle{ieeetr}
 
+
+# citing with author's name and year
+\usepackage[numbers,sort&compress]{natbib}
+citet{einstein}
+
+# another way of citing with author's name and year
+\usepackage[round]{natbib}
+\bibliographystyle{plainnat}
+\cite{}  -->   Author et al., 2006
+\citep{} -->  (Author et al., 2006)
+
+
+# autocomplete citation
+<c-n> inside of \cite{}, type and press <c-n> again to cycle through options
+
+
+# support umlaut characters
+\usepackage[utf8]{inputenc} 
+
+# go to next misspelled word,
+http://thejakeharding.com/tutorial/2012/06/13/using-spell-check-in-vim.html
+]s
+
+# vimlatex cheatsheet
+https://michaelgoerz.net/refcards/vimlatexqrc.pdf
+
+# add word to your own word list permanently/temporarily
+zg / zG
 
 
 Suggestions

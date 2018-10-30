@@ -19,6 +19,20 @@ ssh -T git@github.com
 # RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
 # if push doesn't work, you might have to redefine the ssh url for remote origin
 git remote set-url origin git@github.com:path/to/repository
-# check current remot with: (notice beginning is different!)
+# check current remote with: (notice beginning is different!)
 git config --get remote.origin.url
 git push
+
+git rebase first-this then-this
+# apply the changes from the branch then-this onto the branch first-this
+
+git reset --patch
+# opposite of git add --patch
+
+git branch -f <branch-name> <commit-id>
+# move tip of <branch-name> to point to <commit-id> even if <branch-name>
+# already exists
+
+git rebase <branch>
+# git saves the diff between where the current branch and <branch> diverged,
+# then applies # them to <branch>

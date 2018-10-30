@@ -21,6 +21,16 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" tab completion
+set wildmode=longest,list,full
+set wildmenu
+
+" stop double spacing after .!? when reformatting
+set nojoinspaces
+
+" prevent automatic indenting when pasting text into window
+"set paste
+
 " automatic text wrapping using textwidth
 " http://vim.wikia.com/wiki/Automatic_word_wrapping
 set textwidth=78

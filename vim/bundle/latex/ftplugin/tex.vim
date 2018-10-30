@@ -91,7 +91,7 @@ TexLet g:Tex_DefaultTargetFormat = 'pdf'
 
 " A comma seperated list of formats which need multiple compilations to be
 " correctly compiled.
-TexLet g:Tex_MultipleCompileFormats = 'dvi, pdf, bib'
+TexLet g:Tex_MultipleCompileFormats = 'dvi, pdf, bib, pdf'
 
 " Uncomment this line if you compile ps files via dvi files.
 " TexLet g:Tex_FormatDependency_ps = 'dvi,ps'

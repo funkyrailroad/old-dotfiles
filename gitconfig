@@ -14,7 +14,8 @@
     ev  = !vim ~/.gitconfig
     ek  = !vim ~/.vim/keepers/git.rst
     d   = diff
-    l   = log --stat
+    ;l   = log --stat
+    l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     m   = merge 
     s   = status
     sh  = show

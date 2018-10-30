@@ -36,6 +36,12 @@
 # MASTER THESIS OPTIONS
 ##########################
 
+
+# load modules for build directory
+alias loadbuildmodules='module purge; module load cmake/2.8.12.2-cuda boost/1_55_0 luajit/2.0.5 cuda/8.0 hdf5/1.10.0-patch1 gcc/4.9.4 git/2.18.0'
+alias basiccheck='currentBranch=`git rev-parse --abbrev-ref HEAD`; git diff antialignment-gpu-2d HEAD -- `cat planning-files/${currentBranch}.txt`'
+
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -201,3 +207,11 @@ bind -m vi-insert "\C-w.":backward-kill-word
 #alias gpush='gitPush'
 EDITOR=vim
 export EDITOR
+
+if [ -e .bashrc_default ] 
+then
+    source .bashrc_default
+fi
+
+export HISTSIZE=-1
+export HISTFILESIZE=-1
