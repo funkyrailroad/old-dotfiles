@@ -79,8 +79,8 @@ endfunction
 
 " mappings for calling marking and swapping window functions
 " https://stackoverflow.com/questions/2586984/how-can-i-swap-positions-of-two-open-files-in-splits-in-vim 
-nmap <leader>wm :call MarkWindowSwap()<CR>
-nmap <leader>ws :call DoWindowSwap()<CR>
+" nmap <leader>wm :call MarkWindowSwap()<CR>
+" nmap <leader>ws :call DoWindowSwap()<CR>
 
 nnoremap <leader>ev :80vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -300,3 +300,6 @@ augroup filetype_git
     autocmd!
     autocmd Filetype gitcommit setlocal spell textwidth=72
 augroup END
+
+
+
