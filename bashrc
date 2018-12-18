@@ -162,7 +162,7 @@ alias jf='fortune'
 #checking ostype, can use uname, $OSTYPE
 
 # turn off bell completely
-xset b off
+#xset b off
 
 
 ###########################
