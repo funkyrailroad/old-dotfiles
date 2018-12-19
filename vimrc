@@ -79,8 +79,8 @@ endfunction
 
 " mappings for calling marking and swapping window functions
 " https://stackoverflow.com/questions/2586984/how-can-i-swap-positions-of-two-open-files-in-splits-in-vim 
-nmap <leader>wm :call MarkWindowSwap()<CR>
-nmap <leader>ws :call DoWindowSwap()<CR>
+" nmap <leader>wm :call MarkWindowSwap()<CR>
+" nmap <leader>ws :call DoWindowSwap()<CR>
 
 nnoremap <leader>ev :80vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -114,6 +114,7 @@ nnoremap <leader>' viw<esc>i'<esc>hbi'<esc>lel
 nnoremap <leader>{ viw<esc>i}<esc>hbi{<esc>lel
 
 
+" capitalize current word
 inoremap <c-u> <esc>viwUea
 
 
@@ -150,10 +151,12 @@ set ignorecase
 
 """"""""""""""""""""""""
 
-set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
+" make things behave like windows
+" set nocompatible
+" source $VIMRUNTIME/vimrc_example.vim
+" source $VIMRUNTIME/mswin.vim
+"
+" behave mswin
 
 
 
@@ -271,32 +274,44 @@ augroup filetype_latex
     "autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>ev :80vsplit ~/.vim/bundle/latex/ftplugin/latex-suite/envmacros.vim<cr>
 augroup END
         
-    " vimlatex
+" vimlatex
 
-    " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-    filetype plugin on
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
 
-    " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-    " can be called correctly.
-    set shellslash
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+set shellslash
 
-    " IMPORTANT: grep will sometimes skip displaying the file name if you
-    " search in a singe file. This will confuse Latex-Suite. Set your grep
-    " program to always generate a file-name.
-    set grepprg=grep\ -nH\ $*
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
 
-    " OPTIONAL: This enables automatic indentation as you type.
-    filetype indent on
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
 
-    " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-    " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-    " The following changes the default filetype back to 'tex':
-    let g:tex_flavor='latex'
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
 
 
 """"""""""""""""""""""""""
-" GIT
+" vimwiki
+set nocompatible 
+filetype plugin on
+syntax on
+" let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', 'mdown': 'markdown'}
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+
+
+"""""""""""""""""""""""""
 augroup filetype_git
     autocmd!
     autocmd Filetype gitcommit setlocal spell textwidth=72
 augroup END
+
+" set visual bell to nothing
+set t_vb=
