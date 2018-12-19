@@ -160,6 +160,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     fi
 
     #########################
+    export HISTSIZE=-1
+    export HISTFILESIZE=-1
 
 # Mac OSX
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -240,7 +242,3 @@ if [ -e .bashrc_default ]
 then
     source .bashrc_default
 fi
-
-export HISTSIZE=-1
-export HISTFILESIZE=-1
-

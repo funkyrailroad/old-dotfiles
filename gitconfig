@@ -1,22 +1,28 @@
 [core]
 	editor = vim
 [user]
-	email = jatwell@physik.fu-berlin.de
+	email = jake.atwell@gmail.com
 	name = Jake Atwell
 [alias]
     a   = add
-    aa  = add .
+    aa  = add --all
     ap  = add --patch
     b   = branch
-    cm  = commit
-    cma = commit --amend
+    cm  = commit --verbose
+    cma = commit --amend --verbose
 	co  = checkout
+	cob = checkout -b
     ev  = !vim ~/.gitconfig
     ek  = !vim ~/.vim/keepers/git.rst
     d   = diff
     ;l   = log --stat
     l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     m   = merge 
+    rb  = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbi = rebase --interactive
+    rbs = rebase --skip
     s   = status
     sh  = show
 [push]
