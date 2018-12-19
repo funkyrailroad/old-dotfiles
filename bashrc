@@ -75,14 +75,6 @@ case $- in
       *) return;;
 esac
 
-# enable color support of ls
-if [ "$TERM" != "dumb" ]
-then
-    [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
-    [ -e "$DIR_COLORS" ] || DIR_COLORS=""
-    eval "`dircolors -b $DIR_COLORS`"
-    alias ls='ls --color=auto'
-fi
 
 # If this is an xterm set the title to user@host:dir
 case $TERM in
@@ -98,84 +90,132 @@ esac
 
 # set a fancy prompt
 PS1="\[\e[1;34m\]${SSH_TTY:+(ssh) }\u@\h:\[\e[1;34m\]\w>\[\e[0m\]"
+PS1="\u@\h:\w> "
 
 ############################
 # END MASTER THESIS OPTIONS
 ############################
 
 
-############################
-# Temporary location alias
-
-
-############################
-
-# DEFAULT FROM AG HOEFLING
-
-
-
-#############################
-
-# DEFAULT FROM FU BERLIN PHYSIK
-# $Id: DEFAULT,v 1.3 2003/07/03 09:55:38 tburnus Exp $
-LESS='-Mis'
-PAGER='less -r'
-PS1="\u@\h:\w> "
-PS2="\u@\h:\w> "
-export LESS PAGER PS1 PS2 PATH
-
-umask 022
-
-# Use these aliases
-# Note that the .alias file is used by csh only
-# alias rm='rm -i'
-# alias mv='mv -i'
-# alias cp='cp -i'
-
-if [ "${JOB_NAME}" != "" ]; then
-        exit 0
-fi
-
-
-#########################
 
 alias sheldonssh='ssh -X jakeatwell@sheldon-ng.physik.fu-berlin.de'
 alias homessh='/usr/bin/ssh -D 1080 -p 8712 RakishLitterPanelStager@goneaway.chickenkiller.com'
-alias ev='vim ~/.bashrc'
-alias sv='source ~/.bashrc'
 alias ek='vim ~/.vim/keepers/keepers'
 
-alias la="\ls --color=always --group-directories-first -La"
-alias ll="\ls --color=always --group-directories-first -lh"
-alias ls="ls -L --color=always --group-directories-first"
-export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-export LC_MESSAGES=POSIX #makes messages/man pages be in english
 
 alias jf='fortune'
 
 
 
 ###########################
-# OS specific preferences#
+# OS specific preferences
 ###########################
 
-#checking ostype, can use uname, $OSTYPE
+# Linux
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	# turn off bell completely
+	xset b off
+	setxkbmap -option "caps:swapescape"	
+	setxkbmap -layout us,de
+	setxkbmap -option 'grp:ctrl_alt_toggle'
+    # enable color support of ls
+    if [ "$TERM" != "dumb" ]
+    then
+        [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
+        [ -e "$DIR_COLORS" ] || DIR_COLORS=""
+        eval "`dircolors -b $DIR_COLORS`"
+        alias ls='ls --color=auto'
+    fi
 
-# turn off bell completely
-#xset b off
+    # editing and sourcing bashrc shortcuts
+	alias ev='vim ~/.bashrc'
+	alias sv='source ~/.bashrc'
+
+    # ls options
+    alias la="\ls --color=always --group-directories-first -La"
+    alias ll="\ls --color=always --group-directories-first -lh"
+    alias ls="ls -L --color=always --group-directories-first"
+    export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+    export LC_MESSAGES=POSIX # makes messages/man pages be in english
+
+    #############################
+    # DEFAULT FROM FU BERLIN PHYSIK
+    # $Id: DEFAULT,v 1.3 2003/07/03 09:55:38 tburnus Exp $
+    LESS='-Mis'
+    PAGER='less -r'
+    PS1="\u@\h:\w> "
+    PS2="\u@\h:\w> "
+    export LESS PAGER PS1 PS2 PATH
+
+    umask 022
+
+    # Use these aliases
+    # Note that the .alias file is used by csh only
+    # alias rm='rm -i'
+    # alias mv='mv -i'
+    # alias cp='cp -i'
+
+    if [ "${JOB_NAME}" != "" ]; then
+            exit 0
+    fi
+
+    #########################
+    export HISTSIZE=-1
+    export HISTFILESIZE=-1
+
+# Mac OSX
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+	alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+    # editing and sourcing bashrc shortcuts
+	alias ev='vim ~/.bash_profile'
+	alias sv='source ~/.bash_profile'
+	alias vim="/usr/local/Cellar/vim/8.1.0600/bin/vim"
+
+    alias ls="ls -G"
+    alias la="ls -a"
+    alias ll="ls -l"
+    alias lla="ls -la"
+    export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+
+	# added by Anaconda3 5.3.0 installer
+	# >>> conda init >>>
+	# !! Contents within this block are managed by 'conda init' !!
+	__conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+	if [ $? -eq 0 ]; then
+		\eval "$__conda_setup"
+	else
+		if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then
+			. "/anaconda3/etc/profile.d/conda.sh"
+			CONDA_CHANGEPS1=false conda activate base
+		else
+			\export PATH="/anaconda3/bin:$PATH"
+		fi
+	fi
+	unset __conda_setup
+	# <<< conda init <<<
+
+
+# elif [[ "$OSTYPE" == "cygwin" ]]; then
+	# POSIX compatibility layer and Linux environment emulation for Windows
+# elif [[ "$OSTYPE" == "msys" ]]; then
+	# Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
+# elif [[ "$OSTYPE" == "win32" ]]; then
+	# I'm not sure this can happen.
+# elif [[ "$OSTYPE" == "freebsd"* ]]; then
+	# ...
+# else
+	# Unknown.
+fi
+
 
 
 ###########################
 # Keyboard Options
 ###########################
 
-setxkbmap -option "caps:swapescape"	
-setxkbmap -layout us,de
-setxkbmap -option 'grp:ctrl_alt_toggle'
 	
 
-alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
 
 #redshift in Berlin
@@ -195,16 +235,6 @@ bind -m vi-insert "\C-w.":backward-kill-word
 
 
 
-# GIT
-# these don't work if the file is sourced outside of a git repository
-#branch_name=$(git symbolic-ref -q HEAD)
-#branch_name=${branch_name##refs/heads/}
-#branch_name=${branch_name:-HEAD}
-
-#gitPush() {
-   #git push mpg $branch_name:sandbox/jake.atwell/$branch_name
-#}
-#alias gpush='gitPush'
 EDITOR=vim
 export EDITOR
 
@@ -212,6 +242,3 @@ if [ -e .bashrc_default ]
 then
     source .bashrc_default
 fi
-
-export HISTSIZE=-1
-export HISTFILESIZE=-1
