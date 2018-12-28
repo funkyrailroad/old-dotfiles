@@ -1,37 +1,3 @@
-# COOL TRICKS TO REMEMBER
-# cd -	goes to directory you just came from
-# !!	repeats last command (ex. sudo !!)
-# ^string1^string2	runs last command subbing string2 in for string1
-# rename 's/string1/string2/' *.txt	renames files
-# ctrl + w	delete word/argument to left of cursor
-# ctrl + z; bg	suspend process; continue it in the background
-# ctrl + c	quit line, new blank entry
-# backgrounding and foregrounding different jobs
-# <esc>.	inserts last arguments from you last bash command
-# 
-# COMMAND LINE TOOLS
-# 
-# 
-# WGET 
-# 
-# wget -r -k www.website.com	recursively get all pages up to 5 levels deep, with local links so you can navigate the pages
-# wget -m www.website.com 	mirror the whole website
-# wget -i /path/to/inputfile 	read file of websites/links to download (for batch)
-# wget -t 10 -T 9  -i /path/to/file 	retry 10 times and will try to connect for 9 seconds for each link in file
-# wget -c www.website.com 	continue download
-# wget -w 60 -i /path/to/file 	wait 60s between each retrieval (useful/considerate if downloading a lot from one source)
-# wget --random-wait -i /path/to/inputfile 	waits a randomamt of time so you're not recognized as downloading from a script
-# wget --user=yourusername --password=yourpassword <URL> 	login to a site (don't do on a multiuser computer, running ps will show your username and password)
-# wget -A "*.mp3 -r <URL> 	only download filetype .mp3 from a website
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-
-
 ##########################
 # MASTER THESIS OPTIONS
 ##########################

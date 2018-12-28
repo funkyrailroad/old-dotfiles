@@ -53,8 +53,6 @@ h5ls lennard_jones_20170427_155401.h5/h5md
 setxkbmap us
 # change keyboardlayout to us
 
-wget -p -k i3wm.org/docs/userguide.html
-# The -p will get you all the required elements to view the site correctly (css, images, etc). The -k will change all links (to include those for CSS & images) to allow you to view the page offline as it appeared online.
 
 
 gqip
@@ -183,3 +181,62 @@ filetype plugin indent on
 # install plugin with pathogen
 cd ~/.vim/bundle && \
 git clone <github-address>.git
+
+
+#go to directory you just came from
+cd -
+
+#repeats last command (ex. sudo !!)
+!!
+
+#runs last command subbing string2 in for string1
+^string1^string2
+
+#renames files
+rename 's/string1/string2/' \*.txt
+
+#delete word/argument to left of cursor
+ctrl + w
+
+#suspend process; continue it in the background
+ctrl + z; bg
+
+#quit line, new blank entry
+ctrl + c
+
+#backgrounding and foregrounding different jobs
+
+#inserts last arguments from you last bash command
+<esc>.
+
+
+wget -p -k i3wm.org/docs/userguide.html
+# The -p will get you all the required elements to view the site correctly (css, images, etc). The -k will change all links (to include those for CSS & images) to allow you to view the page offline as it appeared online.
+
+
+# recursively get all pages up to 5 levels deep, with local links so you can navigate the pages
+ wget -r -k www.website.com
+
+# mirror the whole website
+wget -m www.website.com
+
+# read file of websites/links to download (for batch)
+wget -i /path/to/inputfile
+
+# retry 10 times and will try to connect for 9 seconds for each link in file
+wget -t 10 -T 9  -i /path/to/file
+
+# continue download
+wget -c www.website.com
+
+# wait 60s between each retrieval (useful/considerate if downloading a lot from one source)
+wget -w 60 -i /path/to/file
+
+# waits a randomamt of time so you're not recognized as downloading from a script
+wget --random-wait -i /path/to/inputfile
+
+#  	login to a site (don't do on a multiuser computer, running ps will show your username and password)
+wget --user=yourusername --password=yourpassword <URL>
+
+# only download filetype .mp3 from a website
+wget -A "*.mp3 -r <URL>
