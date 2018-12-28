@@ -306,6 +306,16 @@ syntax on
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 
+"""""""""""""""""""""""""
+augroup filetype_markdown
+    autocmd!
+    autocmd Filetype markdown setlocal wrap
+    autocmd Filetype markdown setlocal linebreak
+    autocmd Filetype markdown setlocal nolist  " list disables linebreak
+    autocmd Filetype markdown setlocal textwidth=0
+    autocmd Filetype markdown setlocal wrapmargin=0
+augroup END
+
 
 """""""""""""""""""""""""
 augroup filetype_git
