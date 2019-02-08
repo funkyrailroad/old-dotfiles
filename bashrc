@@ -208,3 +208,5 @@ if [ -e .bashrc_default ]
 then
     source .bashrc_default
 fi
+
+alias ec='vim ~/vimwiki/weekly-plans/`date +%V`.md'
