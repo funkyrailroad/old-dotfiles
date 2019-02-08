@@ -309,11 +309,12 @@ let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
 """""""""""""""""""""""""
 augroup filetype_markdown
     autocmd!
-    autocmd Filetype markdown setlocal wrap
-    autocmd Filetype markdown setlocal linebreak
-    autocmd Filetype markdown setlocal nolist  " list disables linebreak
-    autocmd Filetype markdown setlocal textwidth=0
-    autocmd Filetype markdown setlocal wrapmargin=0
+    autocmd Filetype mkd setlocal wrap
+    autocmd Filetype mkd setlocal linebreak
+    autocmd Filetype mkd setlocal nolist  " list disables linebreak
+    autocmd Filetype mkd setlocal textwidth=78
+    autocmd Filetype mkd setlocal wrapmargin=0
+    autocmd Filetype mkd setlocal foldmethod=indent
 augroup END
 
 
