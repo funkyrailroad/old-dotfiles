@@ -240,3 +240,15 @@ wget --user=yourusername --password=yourpassword <URL>
 
 # only download filetype .mp3 from a website
 wget -A "*.mp3 -r <URL>
+
+# get current week number
+python -c 'import datetime; print(str(datetime.date.today().isocalendar()[1]).zfill(2))'
+
+# copy all webpages with random wait time ranging between 0.5 * 2 and 1.5 * 2
+# seconds, mirror option () and convert links (change file paths for local
+# viewing)
+wget -w 2 --random-wait -mk http://www.rotary7430yep.org/
+
+
+# download mp3 from a youtube video
+youtube-dl -x --audio-format mp3 <youtube-url>
