@@ -211,4 +211,4 @@ then
     source .bashrc_default
 fi
 
-alias ec='vim ~/vimwiki/weekly-plans/`date +%V`.md'
+alias ec='vim -O ~/vimwiki/weekly-plans/`date +%V`.md ~/vimwiki/weekly-plans/master-task-list.md'
