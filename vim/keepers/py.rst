@@ -76,15 +76,13 @@ how to install libraries locally
 pip install --user package_name
 
 
-Suggestions
-============
+fftpack
+~~~~~~~
 
-getting familiar with manipulating numpy arrays would be helpful. 
-    - defaults of element wise or matrix operations
-    - adding along different axes
+by default, the first half of the values correspond to positive frequencies,
+and the second half correspond to negative frequencies. These can be shifted
+by using fftshift, but if you have generated the frequencies with fftfreq, you
+can plot together without shifting either the FT or the frequency arrays.
 
-
-
-
-Sources
-=========
+a more spread out spectrum will mean that the pitch is higher. Lower pitches
+will have more frequencies in the neighborhood around zero hertz.

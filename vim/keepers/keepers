@@ -252,3 +252,32 @@ wget -w 2 --random-wait -mk http://www.rotary7430yep.org/
 
 # download mp3 from a youtube video
 youtube-dl -x --audio-format mp3 <youtube-url>
+
+# show aspect ratios
+identify -format "%[fx:abs((w/h))]:%M\n" *
+
+# show all image sizes (width x height)
+identify -format "%[fx:abs((w))]x%[fx:abs(h)]: %M\n" *
+
+# given an image ratio, output two options for resizing the image. one without
+# changing the height, the other without changing the width
+ar=0.8
+thisone(){
+identify -format "%[fx:abs((w))]x%[fx:abs(h)]: %M\n" *
+identify -format "%[fx:abs((w))]x%[fx:abs(h)]: %M\n" *
+}
+
+# 
+convert file.jpg -resize 180x225 resize-file.jpg
+
+
+
+
+# convert flac files to 16 bit wav files
+for i in *.flac; 
+do 
+sox $i  -b16 ${i%flac}wav
+done
+
+# remove all group (g) and other (o) permissions (user permissions indicated with u)
+chmod go-rwx <file>
