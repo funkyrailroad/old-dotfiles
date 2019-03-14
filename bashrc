@@ -212,3 +212,6 @@ then
 fi
 
 alias ec='vim -O ~/vimwiki/weekly-plans/`date +%V`.md ~/vimwiki/weekly-plans/master-task-list.md'
+alias ej='vim -O ~/vimwiki/conifer-point/conifer-point-journal.md ~/vimwiki/conifer-point/literature.md'
+
+
