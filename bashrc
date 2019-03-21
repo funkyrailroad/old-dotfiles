@@ -62,17 +62,14 @@ PS1="\u@\h:\w> "
 # END MASTER THESIS OPTIONS
 ############################
 
-
-
 alias sheldonssh='ssh -X jakeatwell@sheldon-ng.physik.fu-berlin.de'
 alias homessh='/usr/bin/ssh -D 1080 -p 8712 RakishLitterPanelStager@goneaway.chickenkiller.com'
 alias sshmersey='ssh -i ~/.ssh/priv-jake.pem jake@192.168.102.52'
 alias sshneuse='ssh -i ~/.ssh/priv-jake.pem jake@192.168.102.120'
+alias sshaws='ssh -i ~/.ssh/coniferuser/priv.pem coniferuser@dev-server.boltzmannmaps.com'
 alias ek='vim ~/.vim/keepers/keepers'
 
-
 alias jf='fortune'
-
 
 
 ###########################
