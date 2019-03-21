@@ -281,3 +281,13 @@ done
 
 # remove all group (g) and other (o) permissions (user permissions indicated with u)
 chmod go-rwx <file>
+
+
+# select all files names with xvg
+find . -name md*.xvg
+
+# convert private ssh keys: ppk to pem
+puttygen priv.ppk -O private-openssh -o priv.pem
+
+# convert public ssh keys: ppk to pem, caln also do private keys
+puttygen pub -O public-openssh -o pub.pem
