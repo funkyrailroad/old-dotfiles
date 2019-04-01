@@ -291,3 +291,8 @@ puttygen priv.ppk -O private-openssh -o priv.pem
 
 # convert public ssh keys: ppk to pem, caln also do private keys
 puttygen pub -O public-openssh -o pub.pem
+
+
+# convert between gro to pdb file
+gmx editconf -f foo.gro -o foo.pdb
+
