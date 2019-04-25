@@ -296,3 +296,8 @@ puttygen pub -O public-openssh -o pub.pem
 # convert between gro to pdb file
 gmx editconf -f foo.gro -o foo.pdb
 
+# check existence of bash arguments
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied"
+fi
