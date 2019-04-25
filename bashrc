@@ -71,6 +71,12 @@ alias ek='vim ~/.vim/keepers/keepers'
 
 alias jf='fortune'
 
+#alias scpmersey='scp -r -i ~/.ssh/priv-jake.pem jake@192.168.102.52:'
+
+function scpmersey {
+    scp -i ~/.ssh/priv-jake.pem -r jake@192.168.102.52$1 $2
+}
+
 
 ###########################
 # OS specific preferences
