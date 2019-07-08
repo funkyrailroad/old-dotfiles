@@ -3,11 +3,6 @@
 ##########################
 
 
-# load modules for build directory
-alias loadbuildmodules='module purge; module load cmake/2.8.12.2-cuda boost/1_55_0 luajit/2.0.5 cuda/8.0 hdf5/1.10.0-patch1 gcc/4.9.4 git/2.18.0'
-alias basiccheck='currentBranch=`git rev-parse --abbrev-ref HEAD`; git diff antialignment-gpu-2d HEAD -- `cat planning-files/${currentBranch}.txt`'
-
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -15,25 +10,6 @@ alias basiccheck='currentBranch=`git rev-parse --abbrev-ref HEAD`; git diff anti
 # NOTE: It is recommended to make language settings in ~/.profile rather than
 # here, since multilingual X sessions would not work properly if LANG is over-
 # ridden in every subshell.
-
-# set paths to optional packages
-if [ -r /etc/profile.d/modules.sh ]
-then
-    source /etc/profile.d/modules.sh
-fi
-if [ -r /group/ag_compstatphys/opt/etc/profile.d/packages.sh ]
-then
-    source /group/ag_compstatphys/opt/etc/profile.d/packages.sh
-fi
-
-# load packages
-module load cmake/2.8.12.2-cuda ninja lua git 2>/dev/null # ignore missing modules
-#export PATH=/srv/public/jatwell/build/5th_halmd/halmd:$PATH
-export PATH=~/master_thesis/tools:$PATH
-export PATH="~/.bin-local/:$PATH"
-
-# source command aliases
-test -r ~/.alias && source ~/.alias || true
 
 # If not running interactively, don't do anything
 case $- in
