@@ -1,8 +1,3 @@
-##########################
-# MASTER THESIS OPTIONS
-##########################
-
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -18,31 +13,15 @@ case $- in
 esac
 
 
-# If this is an xterm set the title to user@host:dir
-case $TERM in
-xterm* | screen)	# not screen.linux, which is used on the console
-    #PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-# easier with
-    TITLEBAR="\[\033]0;${USER}@${HOSTNAME}: ${PWD}\007\]"
-    ;;
-*)
-    TITLEBAR=''
-    ;;
-esac
-
 # set a prompt
 # PS1="\u@\h:\w> "
 PS1="\[\e[1;34m\]${SSH_TTY:+(ssh) }\u@\h:\[\e[1;34m\]\w>\[\e[0m\]"
 export PS1
 
+# default file creation setting
 umask 022
 
-############################
-# END MASTER THESIS OPTIONS
-############################
-
 alias ek='vim ~/.vim/keepers/keepers'
-
 alias jf='fortune'
 
 ###########################
@@ -56,6 +35,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	setxkbmap -option "caps:swapescape"	
 	setxkbmap -layout us,de
 	setxkbmap -option 'grp:ctrl_alt_toggle'
+
     # enable color support of ls
     if [ "$TERM" != "dumb" ]
     then
@@ -81,7 +61,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
             exit 0
     fi
 
-    #########################
     export HISTSIZE=-1
     export HISTFILESIZE=-1
 
@@ -99,24 +78,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias ll="ls -l"
     alias lla="ls -la"
     export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-
-	# added by Anaconda3 5.3.0 installer
-	# >>> conda init >>>
-	# !! Contents within this block are managed by 'conda init' !!
-	#__conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-	#if [ $? -eq 0 ]; then
-		#\eval "$__conda_setup"
-	#else
-		#if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then
-			#. "/anaconda3/etc/profile.d/conda.sh"
-			#CONDA_CHANGEPS1=false conda activate base
-		#else
-			#\export PATH="/anaconda3/bin:$PATH"
-		#fi
-	#fi
-	#unset __conda_setup
-	# <<< conda init <<<
-
 
 # elif [[ "$OSTYPE" == "cygwin" ]]; then
 	# POSIX compatibility layer and Linux environment emulation for Windows
@@ -136,15 +97,10 @@ fi
 # Keyboard Options
 ###########################
 
-	
-
-
-
 #redshift in Berlin
 #redshift -l 52.5:13.4 &
 
 complete -d cd
-
 
 # make text entry in bash act like vim
 set -o vi
