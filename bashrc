@@ -21,9 +21,6 @@ export PS1
 # default file creation setting
 umask 022
 
-alias ek='vim ~/.vim/keepers/keepers'
-alias jf='fortune'
-
 ###########################
 # OS specific preferences
 ###########################
@@ -123,5 +120,7 @@ fi
 
 alias ec='vim -c "set nowrap" -O ~/vimwiki/weekly-plans/`date +%V`.md ~/vimwiki/weekly-plans/master-task-list.md'
 alias ej='vim -c "set nowrap" -O ~/vimwiki/conifer-point/conifer-point-journal.md ~/vimwiki/conifer-point/literature.md'
+alias ek='vim ~/.vim/keepers/keepers'
+alias jf='fortune'
 
 
