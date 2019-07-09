@@ -13,10 +13,31 @@ case $- in
 esac
 
 
+
+
+
 # set a prompt
 # PS1="\u@\h:\w> "
-PS1="\[\e[1;34m\]${SSH_TTY:+(ssh) }\u@\h:\[\e[1;34m\]\w>\[\e[0m\]"
-export PS1
+#PS1="\[\e[1;34m\]${SSH_TTY:+(ssh) }\u@\h:\[\e[1;34m\]\w>\[\e[0m\]"
+#export PS1
+
+
+
+# GIT STUFF
+source ~/.terminal-config/git-prompt.sh
+source ~/.terminal-config/git-completion.bash
+
+# Define some colors for the terminal to use
+blue="\[\033[0;34m\]"
+gray="\[\033[38;5;246m\]"
+pink="\[\033[38;5;211m\]"
+green="\[\033[38;5;40m\]"
+reset="\[\033[0m\]"
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+
+export PS1="$blue\u$green@\h$pink\$(__git_ps1)$gray \W
+$ $reset"
 
 # default file creation setting
 umask 022
