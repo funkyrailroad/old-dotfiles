@@ -30,9 +30,12 @@ xterm* | screen)	# not screen.linux, which is used on the console
     ;;
 esac
 
-# set a fancy prompt
+# set a prompt
+# PS1="\u@\h:\w> "
 PS1="\[\e[1;34m\]${SSH_TTY:+(ssh) }\u@\h:\[\e[1;34m\]\w>\[\e[0m\]"
-PS1="\u@\h:\w> "
+export PS1
+
+umask 022
 
 ############################
 # END MASTER THESIS OPTIONS
@@ -73,22 +76,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
     export LC_MESSAGES=POSIX # makes messages/man pages be in english
 
-    #############################
-    # DEFAULT FROM FU BERLIN PHYSIK
-    # $Id: DEFAULT,v 1.3 2003/07/03 09:55:38 tburnus Exp $
-    LESS='-Mis'
-    PAGER='less -r'
-    PS1="\u@\h:\w> "
-    PS2="\u@\h:\w> "
-    export LESS PAGER PS1 PS2 PATH
-
-    umask 022
-
-    # Use these aliases
-    # Note that the .alias file is used by csh only
-    # alias rm='rm -i'
-    # alias mv='mv -i'
-    # alias cp='cp -i'
 
     if [ "${JOB_NAME}" != "" ]; then
             exit 0
