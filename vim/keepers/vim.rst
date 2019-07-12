@@ -1,6 +1,9 @@
 Tricks
 ============
 
+jump to previous position before file was closed
+'" 
+
 How to drop to shell from vim, and return to vim
 :sh, Ctrl+D to kill the shell and go back to vim
 
