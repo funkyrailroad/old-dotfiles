@@ -51,7 +51,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	# turn off bell completely
 	xset b off
 	setxkbmap -option "caps:swapescape"	
-	setxkbmap -layout us,de
+	#setxkbmap -layout us,de
+	setxkbmap -layout us
 	setxkbmap -option 'grp:ctrl_alt_toggle'
 
     # enable color support of ls
