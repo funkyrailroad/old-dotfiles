@@ -39,4 +39,6 @@ git rebase <branch>
 # current branch is overwritten!
 
 
-
+# add submodules (good for having a git repo within another, e.g. dotfiles and
+vim plugins)
+git submodule add https://github.com/ycm-core/YouCompleteMe
