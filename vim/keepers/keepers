@@ -306,3 +306,21 @@ fi
 bluetoothctl
 pair <device>
 connect <device>
+
+# conda create an environment
+conda create -n <env-name> python=3.6
+
+# conda activate an environment
+conda activate <env-name>
+
+# deactivate conda
+conda deactivate
+
+# list conda environments
+conda env list
+
+# see all installed packages in an environment
+conda list -n <env-name>
+
+# conda remove an environment
+conda env remove --name <env-name>
