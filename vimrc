@@ -191,6 +191,29 @@ filetype plugin indent on
 
 
 """"""""""""""""""""""""""
+" YouCompleteMe
+
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
+
+""""""""""""""""""""""""""
+" UltiSnips
+
+let g:UltiSnipsExpandTrigger       = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
+let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
+
+
+
+" '''''''''''''''''''
+" FILETYPES
+" '''''''''''''''''''
+
+""""""""""""""""""""""""""
 " LUA
 augroup filetype_lua
     autocmd!
@@ -211,6 +234,7 @@ augroup filetype_python
     autocmd FileType python nnoremap <buffer> <localleader>ek :80vsplit ~/.vim/keepers/py.rst<cr>
     "autocmd FileType python nnoremap <buffer> <localleader>c mpI#<esc>`pl
     autocmd FileType python nnoremap <buffer> <localleader>r :w<cr>:!python %<cr>
+    autocmd FileType python setlocal completeopt-=preview
 augroup END
 
 """"" jedivim
