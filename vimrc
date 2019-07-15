@@ -205,6 +205,9 @@ augroup END
 augroup filetype_python
     autocmd!
     autocmd FileType python setlocal textwidth=0
+    autocmd FileType python setlocal shiftwidth=4
+    autocmd FileType python setlocal tabstop=4
+    autocmd FileType python setlocal softtabstop=4
     autocmd FileType python nnoremap <buffer> <localleader>ek :80vsplit ~/.vim/keepers/py.rst<cr>
     "autocmd FileType python nnoremap <buffer> <localleader>c mpI#<esc>`pl
     autocmd FileType python nnoremap <buffer> <localleader>r :w<cr>:!python %<cr>
