@@ -307,6 +307,12 @@ bluetoothctl
 pair <device>
 connect <device>
 
+# if bluetooth isn't connecting, restart pulseaudio and reconnect
+pulseaudio -k
+pulseaudio --start
+bluetoothctl
+connect <device>
+
 # conda create an environment
 conda create -n <env-name> python=3.6
 
@@ -324,3 +330,15 @@ conda list -n <env-name>
 
 # conda remove an environment
 conda env remove --name <env-name>
+
+# kill all processes associated with port 8000
+sudo fuser -k 8000/tcp
+
+# uninstall packages (personal settings too)
+sudo apt-get remove --purge <package>
+
+# auto remove unused packages
+sudo apt-get autoremove
+
+# check which version of a package you have
+dpkg -s <package> | grep Version
