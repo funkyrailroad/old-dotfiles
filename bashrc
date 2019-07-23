@@ -162,5 +162,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# enable conda autocomplete
+#eval "$(register-python-argcomplete conda)"
+
 # default conda environment
 conda activate 3.6.5
+
