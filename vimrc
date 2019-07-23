@@ -130,7 +130,7 @@ vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>`>ll
 vnoremap <leader>( <esc>`>a)<esc>`<i(<esc>`>ll
 
 set number
-set relativenumber
+set norelativenumber
 
 " abbreviations
 abbrev @@ jake.atwell@gmail.com
