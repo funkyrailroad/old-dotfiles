@@ -18,7 +18,9 @@ if has("autocmd")
     \| exe "normal! g`\"" | endif
 endif
 
-
+" referesh file contents if file is changed on disc
+" https://stackoverflow.com/questions/2157914/can-vim-monitor-realtime-changes-to-a-file
+set autoread | au CursorHold * checktime | call feedkeys('lh')
 
 
 """""""""""""""""""""""""""""""""""""""""""
