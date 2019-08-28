@@ -281,7 +281,8 @@ augroup END
 
 """"""""""""""""""""""""""
 " ctags
-set tags=./tags
+set tags=./.git/tags
+"set tags=./tags
 
 
 """"""""""""""""""""""""""
