@@ -4,3 +4,6 @@
 [submodule "vim/bundle/ultisnips"]
 	path = vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
+[submodule "vim/bundle/vdebug"]
+	path = vim/bundle/vdebug
+	url = https://github.com/vim-vdebug/vdebug
