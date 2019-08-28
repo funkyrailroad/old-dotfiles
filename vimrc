@@ -138,7 +138,7 @@ abbrev @@ jake.atwell@gmail.com
 
 
 " open meta keepers file, about vim itself
-nnoremap <leader>ek :80vsplit ~/.vim/keepers/vim.rst<cr>
+nnoremap <leader>ek :80vsplit ~/.dotfiles/keepers/vim<cr>
 
 " set filetype shortcut
 nnoremap <leader>fc :set filetype=cpp<cr>
@@ -220,7 +220,7 @@ let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on cu
 " LUA
 augroup filetype_lua
     autocmd!
-    autocmd FileType lua nnoremap <buffer> <localleader>ek :80vsplit ~/.vim/keepers/lua.rst<cr>
+    autocmd FileType lua nnoremap <buffer> <localleader>ek :80vsplit ~/.dotfiles/keepers/lua<cr>
     "autocmd FileType lua nnoremap <buffer> <localleader>c mpI-- <esc>`pl
 augroup END
 
@@ -234,7 +234,7 @@ augroup filetype_python
     autocmd FileType python setlocal shiftwidth=4
     autocmd FileType python setlocal tabstop=4
     autocmd FileType python setlocal softtabstop=4
-    autocmd FileType python nnoremap <buffer> <localleader>ek :80vsplit ~/.vim/keepers/py.rst<cr>
+    autocmd FileType python nnoremap <buffer> <localleader>ek :80vsplit ~/.dotfiles/keepers/py<cr>
     "autocmd FileType python nnoremap <buffer> <localleader>c mpI#<esc>`pl
     autocmd FileType python nnoremap <buffer> <localleader>r :w<cr>:!python %<cr>
     autocmd FileType python setlocal completeopt-=preview
@@ -252,7 +252,7 @@ augroup END
 augroup filetype_rst
         autocmd!
         autocmd BufNewFile,BufRead *.rst nnoremap <localleader>r :w<CR>:!rst2html % > %.html; firefox %.html<CR><CR>
-    autocmd BufNewFile,BufRead *.rst nnoremap <buffer> <localleader>ek :80vsplit ~/.vim/keepers/rst.rst<cr>
+    autocmd BufNewFile,BufRead *.rst nnoremap <buffer> <localleader>ek :80vsplit ~/.dotfiles/keepers/rst<cr>
 augroup END
 
 
@@ -272,7 +272,7 @@ nmap <leader>ss :call SwitchSourceHeader()<CR>
 
 augroup filetype_cpp
     autocmd!
-    autocmd BufNewFile,BufRead *.{cpp,hpp,cu,cuh} nnoremap <buffer> <localleader>ek :80vsplit ~/.vim/keepers/cpp.rst<cr>
+    autocmd BufNewFile,BufRead *.{cpp,hpp,cu,cuh} nnoremap <buffer> <localleader>ek :80vsplit ~/.dotfiles/keepers/cpp<cr>
     "autocmd BufNewFile,BufRead *.{cpp,hpp,cu,cuh} nnoremap <buffer> <localleader>c mpI//<esc>`pl
     au BufNewFile,BufRead *.{cu,cuh} set ft=cuda
 augroup END
@@ -291,7 +291,7 @@ set tags=./.git/tags
 augroup filetype_latex
     autocmd!
     "autocmd BufNewFile,BufRead *.tex nnoremap <localleader>c mpI%<esc>`pl
-    autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>ek :80vsplit ~/.vim/keepers/tex.rst<cr>
+    autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>ek :80vsplit ~/.dotfiles/keepers/tex<cr>
     autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>ev :80vsplit ~/.vim/bundle/latex/ftplugin/tex.vim<cr>:lcd %:p:h<cr>
     autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>sv :source ~/.vim/bundle/latex/ftplugin/tex.vim<cr>
     "autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>ev :80vsplit ~/.vim/bundle/latex/ftplugin/latex-suite/envmacros.vim<cr>
@@ -305,7 +305,7 @@ augroup END
 augroup filetype_latex
     autocmd!
     "autocmd BufNewFile,BufRead *.tex nnoremap <localleader>c mpI%<esc>`pl
-    autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>ek :80vsplit ~/.vim/keepers/tex.rst<cr>
+    autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>ek :80vsplit ~/.dotfiles/keepers/tex<cr>
     autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>ev :80vsplit ~/.vim/bundle/latex/ftplugin/tex.vim<cr>:lcd %:p:h<cr>
     autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>sv :source ~/.vim/bundle/latex/ftplugin/tex.vim<cr>
     "autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <localleader>ev :80vsplit ~/.vim/bundle/latex/ftplugin/latex-suite/envmacros.vim<cr>
