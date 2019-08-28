@@ -193,7 +193,7 @@ set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+p) powerdown
 # active.
 
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3lock, mode "default"
+    bindsym l exec --no-startup-id i3lock -c "#000000" , mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     #bindsym s exec --no-startup-id i3lock && systemctl suspend, mode "default"
     #bindsym h exec --no-startup-id i3lock && systemctl hibernate, mode "default"
