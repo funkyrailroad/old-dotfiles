@@ -168,3 +168,8 @@ unset __conda_setup
 # default conda environment
 conda activate 3.6.5
 
+# add cuda path
+export PATH="$PATH:/usr/local/cuda/bin"
+export PATH="~/tools:~/tools/yolo/:$PATH"
+
+cd Workspace
