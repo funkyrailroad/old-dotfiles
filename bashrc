@@ -116,8 +116,8 @@ fi
 # Keyboard Options
 ###########################
 
-#redshift in Berlin
-#redshift -l 52.5:13.4 &
+# redshift (long, lat settings in .config/redshift.conf)
+#redshift &
 
 complete -d cd
 
