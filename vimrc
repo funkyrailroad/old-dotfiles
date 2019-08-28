@@ -131,6 +131,7 @@ vnoremap <leader>( <esc>`>a)<esc>`<i(<esc>`>ll
 
 set number
 set norelativenumber
+"set mouse=a
 
 " abbreviations
 abbrev @@ jake.atwell@gmail.com
