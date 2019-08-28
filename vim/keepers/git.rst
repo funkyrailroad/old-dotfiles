@@ -40,8 +40,11 @@ git rebase <branch>
 
 
 # add submodules (good for having a git repo within another, e.g. dotfiles and
-vim plugins)
+vim plugins) (be in the directory you want to be when you run this)
 git submodule add https://github.com/ycm-core/YouCompleteMe
 
 # push new local branch to a branch on origin
 git push --set-upstream origin <branch>
+
+# get a branch from a remote onto your local machine
+git fetch <remote> <remote-branch-name>:<local-branch-name>

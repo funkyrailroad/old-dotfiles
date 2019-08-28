@@ -90,9 +90,6 @@ how to create and go to marks
 m{a-zA-Z} makes one, and use ` to go to the specific point of the mark and ' to
 just go to the line
 
-how to yank and append clipboard to another file
-?
-
 using tmux for session management
 ?
 

@@ -120,9 +120,6 @@ ctags -R -f ./.git/tags .
 #ctags initialize and hide file in .git folder
 # https://andrew.stwrt.ca/posts/vim-ctags/
 
-
-
-
 sed -i 's/max_steps = 5/max_steps = nsteps/' current_modes.py density_modes.py velocity-field.py vorticity_fields.py 
 #using sed to change a line in multiple files
 
@@ -319,7 +316,7 @@ conda create -n <env-name> python=3.6
 # conda activate an environment
 conda activate <env-name>
 
-# deactivate conda
+# deactivate/exit/stop conda
 conda deactivate
 
 # list conda environments
@@ -330,6 +327,41 @@ conda list -n <env-name>
 
 # conda remove an environment
 conda env remove --name <env-name>
+
+# conda output spec-file of all packages installed (does not include packages
+# installed via pip
+conda list --explicit > spec-file.txt
+
+# conda create environment from a spec-file
+conda create --name <name> --file spec-file.txt
+
+# conda update conda itself
+conda update conda
+conda update anaconda
+
+# get python script to use conda environment python
+#! /usr/bin/env python
+
+# pip install specific version
+pip install <package>==<version>
+
+# pip save libraries of current environment to a file
+pip freeze > requirements.txt
+
+# pip install libraries from a file
+pip install -r requirements.txt
+
+# pip upgrade a package
+pip install --upgrade <package>
+
+# pip show package information (ie version number)
+pip show <package>
+
+# pip uninstall a package
+pip uninstall <package>
+
+# pip install local package in editable mode
+pip install -e path/to/package
 
 # kill all processes associated with port 8000
 sudo fuser -k 8000/tcp
@@ -342,3 +374,91 @@ sudo apt-get autoremove
 
 # check which version of a package you have
 dpkg -s <package> | grep Version
+
+# save an i3 workspace on <workspace> to ~/.i3/<filename>.json
+i3-save-tree --workspace <workspace> > ~/.i3/<filename>.json
+
+# load <workspace> with settings from ~/.i3/<filename>.json
+i3-msg "workspace <workspace>; append_layout ~/.i3/<filename>.json"
+
+# search snap repository for software
+snap find <search>
+
+# list snap packages installed on my system
+snap list
+
+# remove a snap package
+sudo snap remove <package>
+
+# add nvidia repository
+sudo add-apt-repository ppa:graphics-drivers/ppa
+
+# remove all nvidia drivers
+sudo apt --purge autoremove nvidia*
+
+# install new nvidia driver
+sudo apt update && sudo apt upgrade
+sudo apt install nvidia-driver-VERSION_NUMBER_HERE
+
+# i3 move a whole workspace to the next output to the right/left
+i3-msg move workspace to output right/left
+
+# save all environment packages from $OLD_ENV and load them in $NEW_ENV
+OLD_ENV="yolov3-tf2"
+NEW_ENV="yolov3-tf2-test"
+conda activate $OLD_ENV
+conda list --explicit > ${OLD_ENV}-spec-file.txt
+pip freeze > ${OLD_ENV}-requirements.txt
+conda create --name $NEW_ENV --file ${OLD_ENV}-spec-file.txt
+conda activate $NEW_ENV
+pip install -r ${OLD_ENV}-requirements.txt
+rm ${OLD_ENV}-spec-file.txt ${OLD_ENV}-requirements.txt
+
+# scan for a bluetooth 
+bluetoothctl
+scan on
+
+# bluetooth Error: Waiting to connect to bluetoothd...
+# https://unix.stackexchange.com/questions/402623/waiting-to-connect-to-bluetoothd/413272
+modprobe btusb
+systemctl start bluetooth
+
+# postgresql show tables
+\dt
+
+# postgresql show tables and sequences
+\dt
+
+# postgresql show a table
+select * from <table>;
+
+# postgresql WHERE clause
+http://www.postgresqltutorial.com/postgresql-show-tables/
+
+# postgresql copy data from csv to a table
+\copy <table> from 'file.csv' delimiter ',' CSV
+
+# postgresql update sequence counter after importing from csv
+select setval('<table>_id_seq', ( select max(id) from <table>));
+
+# postgresql delete from table
+DELETE FROM <table> WHERE <condition>
+
+# bash loop over an array
+array=( one two three )
+for i in ${array[@]}
+do
+    echo $i
+done
+
+# sqlite3 export table to csv
+sqlite3 -header -csv db.sqlite3 "select * from <table>"
+
+# sqlite3 show all tables
+.tables
+
+# sqlite3 show a table
+SELECT * FROM <table>;
+
+# sqlite3 show how a table was made
+.schema <table>
