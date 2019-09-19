@@ -1,7 +1,7 @@
 #! /bin/bash
 for i in `ls | grep -v symlink_script.sh`; do
-    mv -i ~/.$i{,.bak}
-    ln -rs $i ~/.$i
+    #rm ~/.$i
+    ln -s ~/.dotfiles/$i ~/.$i
 done
 
 

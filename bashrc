@@ -90,7 +90,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     # editing and sourcing bashrc shortcuts
 	alias ev='vim ~/.bash_profile'
 	alias sv='source ~/.bash_profile'
-	alias vim="/usr/local/Cellar/vim/8.1.0600/bin/vim"
 
     alias ls="ls -G"
     alias la="ls -a"
