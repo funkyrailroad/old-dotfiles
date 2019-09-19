@@ -301,3 +301,9 @@ if [ $# -eq 0 ]
   then
     echo "No arguments supplied"
 fi
+
+# quality ssh key generation
+# https://security.stackexchange.com/a/144044
+# https://stribika.github.io/2015/01/04/secure-secure-shell.html
+ssh-keygen -t ed25519 -a 100
+
