@@ -13,8 +13,9 @@
 	co  = checkout
 	cob = checkout -b
     ev  = !vim ~/.gitconfig
-    ek  = !vim ~/.vim/keepers/git.rst
+    ek  = !vim ~/.dotfiles/keepers/git
     d   = diff
+    ds  = diff --staged
     ;l   = log --stat
     l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     m   = merge 
