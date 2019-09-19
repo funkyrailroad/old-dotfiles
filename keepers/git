@@ -48,3 +48,6 @@ git push --set-upstream origin <branch>
 
 # get a branch from a remote onto your local machine
 git fetch <remote> <remote-branch-name>:<local-branch-name>
+
+# git check out remote branch and have it tracked
+git checkout --track remote/branch
