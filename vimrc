@@ -188,7 +188,7 @@ set noundofile
 """"""""""""""""""""""""""
 " pathogen plugin manager settings
 
-execute pathogen#infect()
+execute pathogen#infect('bundle/{}')
 syntax on
 filetype plugin indent on
 
