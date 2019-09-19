@@ -1,5 +1,3 @@
-lpr -P a9-k008-col -o Duplex=DuplexNoTumble -o saturation=0 -o page-ranges=1-2  out.pdf 
-lpr -P a9-k008-col -o sides=two-side-long-edge -o saturation=0 -o page-ranges=1-2  out.pdf 
 # print to print a9-k008-col
 # double side printed along long side
 # saturation 0 is black and white (apparently not)
@@ -7,21 +5,23 @@ lpr -P a9-k008-col -o sides=two-side-long-edge -o saturation=0 -o page-ranges=1-
 # http://www.enet.umn.edu/docs/unix/printing/duplex_cups.html
 # Duplex=DuplexNoTumble is long side binding
 # Duplex=DuplexTumble is short side binding
+lpr -P a9-k008-col -o Duplex=DuplexNoTumble -o saturation=0 -o page-ranges=1-2  out.pdf 
+lpr -P a9-k008-col -o sides=two-side-long-edge -o saturation=0 -o page-ranges=1-2  out.pdf 
 
 ##################
 # PDFJAM
 ##################
 
-pdfjam --outfile out.pdf --paper a4paper --scale 1.5 --offset '-3cm 0cm' file.pdf 
 # convert file.pdf to a4 and the output file is out.pdf
 # a whole lot of things, see http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/firth/software/pdfjam
 # printing a booklet
 # print to a .ps file in adobe reader
 # print it with document viewer double sided and flip over short edge
+pdfjam --outfile out.pdf --paper a4paper --scale 1.5 --offset '-3cm 0cm' file.pdf 
 
 # merging
-pdfjam file1.pdf '-' file2.pdf '1,2' file3.pdf '2-' --outfile output.pdf
 # http://0x2a.at/blog/2011/02/pdf_manipulation_on_the_cli/
+pdfjam file1.pdf '-' file2.pdf '1,2' file3.pdf '2-' --outfile output.pdf
 
 # splitting
 pdfjam file1.pdf '1,2' --outfile first.pdf
@@ -42,61 +42,53 @@ pdfbook --short-edge file.pdf
 
 #####################################
 
-scp -r jatwell@login.physik.fu-berlin.de:~/.vim .
 
-scp jatwell@login.physik.fu-berlin.de:~/.bashrc .
-
-h5dump  lennard_jones_20170427_155401.h5/h5md/author
-
-h5ls lennard_jones_20170427_155401.h5/h5md
-
-setxkbmap us
 # change keyboardlayout to us
+setxkbmap us
 
-
-
-gqip
 # in vim, format in the current paragraph
 # automatic word wrapping http://vim.wikia.com/wiki/Automatic_word_wrapping
+gqip
 
-scrot -s file.png
 # take a screen shot with a selection tool and save as file.png
+scrot -s file.png
 
-TexLet g:Tex_MultipleCompileFormats = 'dvi, pdf, bib'
 # add this into the vim-latex tex.vim file to ensure latex recompiles and
 # bibliogoraphy entries work
+TexLet g:Tex_MultipleCompileFormats = 'dvi, pdf, bib'
 
-chmod 0444 filename
 # I used this to make a file read only, don't understand it though
+chmod 0444 filename
 
-redshift
 # config file in ~/.config/redshift.conf
+redshift
 
-unzip -d folder/ zip.zip
 # extract the files contained in zip.zip into folder/
+unzip -d folder/ zip.zip
 
-grep -iIrn phrase *
 # a case-insensitive search for "phrase" in all files recursively that ignores
-matches in binary files and prints the line number in the file of the matches
+# matches in binary files and prints the line number in the file of the matches
+grep -iIrn phrase *
 
-crontab -e
 # edit cron jobs
+crontab -e
 
-ls -t | head -n 2 | xargs rm --
 # delete newest two entries in a directory
+ls -t | head -n 2 | xargs rm --
 
-git push mpg antialignment-gpu-2d:sandbox/jake.atwell/antialignment-gpu-2d
 #push local branch to remote location, add -f to force push
+git push mpg antialignment-gpu-2d:sandbox/jake.atwell/antialignment-gpu-2d
 
-git push mpg :sandbox/jake.atwell/antialignment-gpu-2d
 # delete remote branch, add -f to force push, -n to try
+git push mpg :sandbox/jake.atwell/antialignment-gpu-2d
 
-currentBranch=`git rev-parse --abbrev-ref HEAD`; git push mpg ${currentBranch}:sandbox/jake.atwell/$currentBranch
 #push current branch to sandbox repo
+currentBranch=`git rev-parse --abbrev-ref HEAD`; git push mpg ${currentBranch}:sandbox/jake.atwell/$currentBranch
 
 #BACKUPS
 #backup to storage
 rsync -av --exclude .cache --exclude .mozilla ~/ /storage/mi/jatwell/backup
+
 #backup to physics server
 rsync -av --exclude .cache --exclude .mozilla ~/ login.physik.fu-berlin.de:/net/storage/jatwell/backup
 
@@ -107,42 +99,42 @@ rsync -av --exclude .cache --exclude .mozilla ~/ login.physik.fu-berlin.de:/net/
 
 # generally building and installing locally from source
 # download the source code
-# ./configure --prefix=/path/to/installation/dir
-# make
-# make install
-
+./configure --prefix=/path/to/installation/dir
+make
+make install
 
 # manually configure libraries that are needed by an executable
 # https://nixos.org/patchelf.html
 patchelf --set-rpath /opt/my-libs/lib:/foo/lib program
 
-ctags -R -f ./.git/tags .
 #ctags initialize and hide file in .git folder
 # https://andrew.stwrt.ca/posts/vim-ctags/
+ctags -R -f ./.git/tags .
 
+# using sed to change a line in multiple files
 sed -i 's/max_steps = 5/max_steps = nsteps/' current_modes.py density_modes.py velocity-field.py vorticity_fields.py 
-#using sed to change a line in multiple files
 
-ssh bountiful 'cd ~/opt/halmd/halmd/ && bash ./test_run.sh'
 # running a remote script on a remote machine via ssh, can't be run in
+ssh bountiful 'cd ~/opt/halmd/halmd/ && bash ./test_run.sh'
 
-jobs/fg/bg
 # see the list of background jobs and bring/send specific ones to fore-/back-ground
+jobs/fg/bg
 
+# bash string replacement, replace first match of $substring with $replacement.
 ${string/substring/replacement}
-#bash string replacement, replace first match of $substring with $replacement.
 
+# bash string replacement, replace all matches of $substring with $replacement.
 ${string//substring/replacement}
-#bash string replacement, replace all matches of $substring with $replacement.
 
+# running this program in parallel for all the files that end in .h5, with
+# 2 jobs per core
 parallel -j200% energy_spectrum.py ::: *.h5
-#running this program in parallel for all the files that end in .h5, with
-#2 jobs per core
 
 # GENERATE NEW SSH KEY AND ADD TO SSH-AGENT
 # Paste the text below, substituting in your GitHub Enterprise email address.
 ssh-keygen -t rsa -b 4096 -C "jake.atwell@gmail.com"
-# When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
+# When you're prompted to "Enter a file in which to save the key," press
+# Enter. This accepts the default file location.
 # add ssh key to the ssh-agent
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
@@ -154,12 +146,11 @@ ls *.h5 | grep density_150 | xargs ocf.py
 # shorcuts in i3
 xev
 
-
 # split file into multiple other files with 10 lines each (names begin with
 # prefix)
 split -l 10 file prefix
 
-#convert pdf to grayscale
+# convert pdf to grayscale
 convert -colorspace GRAY color.pdf gray.pdf
 
 # vim cheatsheet
@@ -174,45 +165,44 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-#
 # install plugin with pathogen
 cd ~/.vim/bundle && \
 git clone <github-address>.git
 
 
-#go to directory you just came from
+# go to directory you just came from
 cd -
 
-#repeats last command (ex. sudo !!)
+# repeats last command (ex. sudo !!)
 !!
 
-#runs last command subbing string2 in for string1
+# runs last command subbing string2 in for string1
 ^string1^string2
 
-#renames files
+# renames files
 rename 's/string1/string2/' \*.txt
 
-#delete word/argument to left of cursor
+# delete word/argument to left of cursor
 ctrl + w
 
-#suspend process; continue it in the background
+# suspend process; continue it in the background
 ctrl + z; bg
 
-#quit line, new blank entry
+# quit line, new blank entry
 ctrl + c
 
-#backgrounding and foregrounding different jobs
+# backgrounding and foregrounding different jobs
 
-#inserts last arguments from you last bash command
+# inserts last arguments from you last bash command
 <esc>.
 
-
+# The -p will get you all the required elements to view the site correctly
+# (css, images, etc). The -k will change all links (to include those for CSS &
+# images) to allow you to view the page offline as it appeared online.
 wget -p -k i3wm.org/docs/userguide.html
-# The -p will get you all the required elements to view the site correctly (css, images, etc). The -k will change all links (to include those for CSS & images) to allow you to view the page offline as it appeared online.
-
 
 # recursively get all pages up to 5 levels deep, with local links so you can navigate the pages
- wget -r -k www.website.com
+wget -r -k www.website.com
 
 # mirror the whole website
 wget -m www.website.com
@@ -232,7 +222,7 @@ wget -w 60 -i /path/to/file
 # waits a randomamt of time so you're not recognized as downloading from a script
 wget --random-wait -i /path/to/inputfile
 
-#  	login to a site (don't do on a multiuser computer, running ps will show your username and password)
+# login to a site (don't do on a multiuser computer, running ps will show your username and password)
 wget --user=yourusername --password=yourpassword <URL>
 
 # only download filetype .mp3 from a website
@@ -246,6 +236,9 @@ python -c 'import datetime; print(str(datetime.date.today().isocalendar()[1]).zf
 # viewing)
 wget -w 2 --random-wait -mk http://www.rotary7430yep.org/
 
+# choose the output directory and don't redownload files that are already
+# downloaded (no clobber option)
+wget -nc -P output-dir
 
 # download mp3 from a youtube video
 youtube-dl -x --audio-format mp3 <youtube-url>
@@ -264,11 +257,8 @@ identify -format "%[fx:abs((w))]x%[fx:abs(h)]: %M\n" *
 identify -format "%[fx:abs((w))]x%[fx:abs(h)]: %M\n" *
 }
 
-# 
+# imagemagick convert resize image
 convert file.jpg -resize 180x225 resize-file.jpg
-
-
-
 
 # convert flac files to 16 bit wav files
 for i in *.flac; 
@@ -279,6 +269,9 @@ done
 # remove all group (g) and other (o) permissions (user permissions indicated with u)
 chmod go-rwx <file>
 
+# recursively make a directory and all its subdirectories have open
+# permissions
+chmod -R 777 <dir>
 
 # select all files names with xvg
 find . -name md*.xvg
@@ -288,7 +281,6 @@ puttygen priv.ppk -O private-openssh -o priv.pem
 
 # convert public ssh keys: ppk to pem, caln also do private keys
 puttygen pub -O public-openssh -o pub.pem
-
 
 # convert between gro to pdb file
 gmx editconf -f foo.gro -o foo.pdb
@@ -462,3 +454,100 @@ SELECT * FROM <table>;
 
 # sqlite3 show how a table was made
 .schema <table>
+
+# show wifi networks
+nmcli dev wifi
+
+# connect to wifi (doesn't work in i3 for some reason)
+nmcli device wifi connect <APname> <password>
+
+# connect to wifi and bluetooth (application in terminal)
+nmtui-connect
+
+# edit wifi and bluetooth connections (application in terminal)
+nmtui-connect
+
+# edit hostname of computer
+nmtui-hostname
+
+# see if a port on a remote IP is open or not
+nc -zv <ip-address> <port>
+
+# docker show all mapped ports
+# https://docs.docker.com/engine/reference/commandline/port/
+docker port <container>
+
+# stop docker
+docker stop <container>
+
+# see what's happening on <port>
+lsof -i tcp:<port>
+
+# i3 rename windows
+# https://faq.i3wm.org/question/1657/add-friendly-name-to-workspace-but-keep-numbers-for-shortcuts.1.html
+bindsym $mod+1 workspace number 1 <name>
+
+# enable access to a port
+sudo firewall-cmd --zone=public --add-port=5433/tcp --permanent
+sudo firewall-cmd --reload
+
+# listen on a port
+nc -l <port>
+
+# snapshot of current docker processes (also shows port information)
+docker ps
+
+# get details of a specific docker container
+docker inspect <container>
+
+# get all network IP addresses of the host
+hostname -I
+
+# get public IP address
+curl -4 ifconfig.co
+
+# labelImg startup command
+python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE] [TAG_PATH]
+
+# bash stdout/stderr redirection
+# https://askubuntu.com/questions/625224/how-to-redirect-stderr-to-a-file
+
+# write stdout and stderr to separate files
+command > out 2>error
+
+# redirect stderr to stdout, then redirect stdout to file
+command >out 2>&1
+
+# redirect both to a file (not supported by all shells)
+command &> out
+
+# python speeding up code with multithreading
+https://pythontips.com/2019/05/29/speeding-up-python-code-using-multithreading/#more-1682
+
+# docker get information about the image (e.g. version)
+docker image inspect IMAGE
+
+# run a specific a django test
+# https://stackoverflow.com/a/21985517
+# https://docs.djangoproject.com/en/2.2/topics/testing/overview/#running-tests
+python manage.py test app.file.class.function
+
+
+# mount remote filesystem
+sudo sshfs -o alow_other user@x.x.x.x:/path/to/folder /mount/dir
+
+# really annoying fstab entries for mounting a network filesystem 
+stic@192.168.2.2:/ /mnt/160_data_2_2 fuse.sshfs delay_connect,_netdev,user,idmap=user,transform_symlinks,identityfile=/home/stic/.ssh/id_rsa,allow_other,default_permissions,uid=0,gid=0 0 0
+
+
+# really annoying fstab entries for mounting an arbitrary IP
+sshfs#stic@50.198.153.83:/velocity/old-newspapers/frank /home/stic/Desktop/loc\040tagger fuse delay_connect,port=2244,IdentityFile=/home/stic/.ssh/id_rsa,idmap=user,allow_other,uid=0,gid=0,rw,nosuid,nodev 0 0
+
+# xargs specify where the input arguments go in the command
+ls | xargs -I % echo mv % zed
+
+# sum a column of a pandas dataframe
+df['col'].sum()
+
+# testing a view with login required and getting json input from a file
+http -a jtl:1234 POST http://127.0.0.1:8000/conceptsearch/savequery/ < query_sample_input.json

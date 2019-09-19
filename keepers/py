@@ -1,88 +1,75 @@
-make a boolean array of same shape as F_magnitude that returns true if the value is in the 98th percentile of the array.
+# make a boolean array of same shape as F_magnitude that returns true if the value is in the 98th percentile of the array.
 peaks = F_magnitude < np.percentile(F_magnitude, 98)
 
-see if variables x and y reference the same object
+# see if variables x and y reference the same object
 x is y # true if they are, false otherwise
 
-cast an ndarray X of data type bool to integers
+# cast an ndarray X of data type bool to integers
 X.astype(int)
 
-matplotlib: how to plot vector fields 
+# matplotlib: how to plot vector fields 
 quiver
 
-matplotlib: how to add text to a plot?
+# matplotlib: how to add text to a plot?
+# xy is where the arrow points to, xytext is where the text is positioned,
+# {xy,text}coords is what type of coordinates are used (fraction of the axis,
+#data, pixes...)
 plt.annotate(title, xy, xycoords, xytext, textcoords)
-xy is where the arrow points to, xytext is where the text is positioned, {xy,text}coords is what type of coordinates are used (fraction of the axis, data, pixes...)
+
+# If x and y are both multi dimensional, it is possible to set the legend for
+# all lines plotted at once like this
+lineObjects = plt.plot(x, y)
+plt.legend(lineObjects, [1, 2, 3])
 
 
-If x and y are both multi dimensional, it is possible to set the legend for
-all lines plotted at once like this::
-
-    lineObjects = plt.plot(x, y)
-    plt.legend(lineObjects, [1, 2, 3])
-
-
-Can carefully place graphs inside of or on top of other `graphs <http://matplotlib.org/examples/pylab_examples/axes_demo.html#pylab-examples-axes-demo>`_
-
+# Can carefully place graphs inside of or on top of other graphs
+# http://matplotlib.org/examples/pylab_examples/axes_demo.html#pylab-examples-axes-demo
 plt.text(x, y, r'some text'): can add text to a graph (don't need to use annotate)
 
-`zoom in on axes <http://matplotlib.org/users/annotations.html#zoom-effect-between-axes>`_
+# zoom in on axes 
+# http://matplotlib.org/users/annotations.html#zoom-effect-between-axes
 
-numpy: select elements in an array that are less than 0 and greater than 1
+# numpy: select elements in an array that are less than 0 and greater than 1
 y = np.random.normal(loc=0.5, scale=0.4, size=1000)
 y = y[(y > 0) & (y < 1)]
 
-
-`image tutorial <http://matplotlib.org/users/image_tutorial.html>`_
-
-matplotlib: set y axis limits in a plot
+# image tutorial 
+# http://matplotlib.org/users/image_tutorial.html
+# matplotlib: set y axis limits in a plot
 plt.ylim((ymin, ymax))
 
-python: get the index of the maximum of a multidemensional array
+# python: get the index of the maximum of a multidemensional array
 maxind = np.unravel_index(np.argmax(ft_modes) , ft_modes.shape)
 
-matplotlib: where on the screen does contourf Z "height" argument Z[0,0] start?
+# matplotlib: where on the screen does contourf Z "height" argument Z[0,0] start?
 on the bottom left corner of the screen
 
-NumPy
-~~~~~
-
-numpy: sort an array along the first axis (columns in 2d arrays) by the column with
-index n
+# NumPy
+# numpy: sort an array along the first axis (columns in 2d arrays) by the column with
+# index n
 together = together[np.argsort(together[:,n])]
 
-numpy: sort an array along with a prioritization of colums to be sorted. The final
-argument takes priority and it works backwards from there. In the example
-below, column "a" will be sorted first and if elements are the same, they will
-be sorted according to column "b"::
+# numpy: sort an array along with a prioritization of colums to be sorted. The final
+# argument takes priority and it works backwards from there. In the example
+# below, column "a" will be sorted first and if elements are the same, they will
+# be sorted according to column "b"
+ind = np.lexsort((b, a))
+array_sorted = array[ind]
 
-    ind = np.lexsort((b, a))
-    array_sorted = array[ind]
+# jedi autocomplete menu
+Ctrl+Space
 
+# jedi display of function/class bodies
+# https://github.com/davidhalter/jedi
+Shift+K    
 
-
-Jedi
-~~~~~
-jedi: Ctrl+Space
-autocomplete menu
-
-jedi: Shift+K    
-display of function/class bodies
-
-`jedi github page <https://github.com/davidhalter/jedi>`_
-
-
-how to install libraries locally
+# how to install libraries locally
 pip install --user package_name
 
-
-fftpack
-~~~~~~~
-
-by default, the first half of the values correspond to positive frequencies,
-and the second half correspond to negative frequencies. These can be shifted
-by using fftshift, but if you have generated the frequencies with fftfreq, you
-can plot together without shifting either the FT or the frequency arrays.
-
-a more spread out spectrum will mean that the pitch is higher. Lower pitches
-will have more frequencies in the neighborhood around zero hertz.
+# fftpack
+# by default, the first half of the values correspond to positive frequencies,
+# and the second half correspond to negative frequencies. These can be shifted
+# by using fftshift, but if you have generated the frequencies with fftfreq, you
+# can plot together without shifting either the FT or the frequency arrays.
+# a more spread out spectrum will mean that the pitch is higher. Lower pitches
+# will have more frequencies in the neighborhood around zero hertz.
