@@ -39,6 +39,11 @@ set nojoinspaces
 " prevent automatic indenting when pasting text into window
 "set paste
 
+
+" make extra whitespace visible
+" https://vim.fandom.com/wiki/Highlight_unwanted_spaces
+set list
+
 " automatic text wrapping using textwidth
 " http://vim.wikia.com/wiki/Automatic_word_wrapping
 set textwidth=78
@@ -129,7 +134,7 @@ inoremap <c-u> <esc>viwUea
 vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>`>ll
 vnoremap <leader>( <esc>`>a)<esc>`<i(<esc>`>ll
 
-set number
+set nonumber
 set norelativenumber
 "set mouse=a
 
