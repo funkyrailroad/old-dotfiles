@@ -17,7 +17,7 @@ lpr -P a9-k008-col -o sides=two-side-long-edge -o saturation=0 -o page-ranges=1-
 # printing a booklet
 # print to a .ps file in adobe reader
 # print it with document viewer double sided and flip over short edge
-pdfjam --outfile out.pdf --paper a4paper --scale 1.5 --offset '-3cm 0cm' file.pdf 
+pdfjam --outfile out.pdf --paper a4paper --scale 1.5 --offset '-3cm 0cm' file.pdf
 
 # merging
 # http://0x2a.at/blog/2011/02/pdf_manipulation_on_the_cli/
@@ -261,7 +261,7 @@ identify -format "%[fx:abs((w))]x%[fx:abs(h)]: %M\n" *
 convert file.jpg -resize 180x225 resize-file.jpg
 
 # convert flac files to 16 bit wav files
-for i in *.flac; 
+for i in *.flac;
 do 
 sox $i  -b16 ${i%flac}wav
 done
@@ -290,6 +290,11 @@ if [ $# -eq 0 ]
   then
     echo "No arguments supplied"
 fi
+
+# quality ssh key generation
+# https://security.stackexchange.com/a/144044
+# https://stribika.github.io/2015/01/04/secure-secure-shell.html
+ssh-keygen -t ed25519 -a 100
 
 # connect to bluetooth device
 bluetoothctl
@@ -406,7 +411,7 @@ conda activate $NEW_ENV
 pip install -r ${OLD_ENV}-requirements.txt
 rm ${OLD_ENV}-spec-file.txt ${OLD_ENV}-requirements.txt
 
-# scan for a bluetooth 
+# scan for a bluetooth
 bluetoothctl
 scan on
 
@@ -521,7 +526,7 @@ command >out 2>&1
 # redirect both to a file (not supported by all shells)
 command &> out
 
-# python speeding up code with multithreading
+# python speeding up code with multithreading, parallelize
 https://pythontips.com/2019/05/29/speeding-up-python-code-using-multithreading/#more-1682
 
 # docker get information about the image (e.g. version)
@@ -534,7 +539,7 @@ python manage.py test app.file.class.function
 
 
 # mount remote filesystem
-sudo sshfs -o alow_other user@x.x.x.x:/path/to/folder /mount/dir
+sudo sshfs -o allow_other user@x.x.x.x:/path/to/folder /mount/dir
 
 # really annoying fstab entries for mounting a network filesystem 
 stic@192.168.2.2:/ /mnt/160_data_2_2 fuse.sshfs delay_connect,_netdev,user,idmap=user,transform_symlinks,identityfile=/home/stic/.ssh/id_rsa,allow_other,default_permissions,uid=0,gid=0 0 0
@@ -551,3 +556,28 @@ df['col'].sum()
 
 # testing a view with login required and getting json input from a file
 http -a jtl:1234 POST http://127.0.0.1:8000/conceptsearch/savequery/ < query_sample_input.json
+
+# postgres deleting all rows in a table and resetting the sequence
+delete from <table>;
+alter sequence <sequence> minvalue 0 start with 1;
+select setval (<sequence>, 0);
+
+# git delete a remote branch
+git push --delete <remote> <branch>
+
+# see how much space is used/available on all devices
+df -h
+
+# make new user, establish home directory, make it, and assign password
+# https://www.cyberciti.biz/faq/create-a-user-account-on-ubuntu-linux/
+sudo useradd -s /bin/bash -d /home/vivek/ -m -G sudo vivek
+sudo passwd vivek
+
+# check which desktop environments are available on your system
+ls /usr/share/xsessions
+
+# consistently call a command and watch the results update
+watch -n 0.5 nvidia-smi
+
+# rename a file with a pattern that starts with a hyphen
+rename.ul -- '-pc-gt' '' *xml
