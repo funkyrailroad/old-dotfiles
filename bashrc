@@ -163,9 +163,10 @@ unset __conda_setup
 
 # enable conda autocomplete
 #eval "$(register-python-argcomplete conda)"
+conda activate pytorch
 
 # add cuda path
 export PATH="$PATH:/usr/local/cuda/bin"
-export PATH="~/tools:~/tools/yolo/:$PATH"
+export PATH="~/tools:$PATH"
 
 cd Workspace

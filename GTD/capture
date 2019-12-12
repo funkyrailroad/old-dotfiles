@@ -1,0 +1,3 @@
+Capture
+vnoremap <leader>gd "zy:call writefile(getreg('z',1,1),$HOME"/.dotfiles/GTD/capture", "a")
+vnoremap <leader>gd "zy:call writefile(getreg('z',1,1),"/home/stic/.dotfiles/GTD/capture", "a")<cr>

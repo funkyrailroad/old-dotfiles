@@ -368,3 +368,7 @@ augroup END
 
 " set visual bell to nothing
 set t_vb=
+
+
+" append selected text to a collection file
+vnoremap <leader>gd "zy:call writefile(getreg('z',1,1),"/home/stic/.dotfiles/GTD/capture", "a")<cr>
